@@ -6,7 +6,6 @@ public class Main {
         String[] words = sentence.toLowerCase().split("\\s+");
 
         MyHashTable<String, Integer> hashTable = new MyHashTable<>(10);
-
         for (String word : words) {
             Integer count = hashTable.get(word);
             if (count == null) {
