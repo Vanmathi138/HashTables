@@ -52,6 +52,21 @@ class MyBinarySearchTree<K extends Comparable<K>> {
         }
         return 1 + getSizeRecursive(node.left) + getSizeRecursive(node.right);
     }
+    public boolean search(K key) {
+        return searchRecursively(root, key);
+    }
+
+    private boolean searchRecursively(MyBinaryNode<K> current, K key) {
+        if (current == null) {
+            return false;
+        }
+        if (current.key.equals(key)) {
+            return true;
+        }
+        return key.compareTo(current.key) < 0
+                ? searchRecursively(current.left, key)
+                : searchRecursively(current.right, key);
+    }
 
 }
 class MyBinaryNode<K extends Comparable<K>> implements INode<K> {
