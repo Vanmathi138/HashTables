@@ -1,6 +1,6 @@
 package BinarySearchTree;
 
-public class BST {
+public class BST_Uc1 {
     public static void main(String[] args) {
         MyBinarySearchTree<Integer> bst = new MyBinarySearchTree<>();
 
@@ -43,6 +43,16 @@ class MyBinarySearchTree<K extends Comparable<K>> {
             printInOrder(node.right);
         }
     }
+    public int size() {
+        return getSizeRecursive(root);
+    }
+    private int getSizeRecursive(MyBinaryNode<K> node) {
+        if (node == null) {
+            return 0;
+        }
+        return 1 + getSizeRecursive(node.left) + getSizeRecursive(node.right);
+    }
+
 }
 class MyBinaryNode<K extends Comparable<K>> implements INode<K> {
     K key;
